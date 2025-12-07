@@ -13,7 +13,7 @@
   
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <title>Worzzle Mini - Mobile Word Search Game | Soosooland</title>
+ <title>Breeze Pop - Mobile Word Search Game | Soosooland</title>
 
 <!-- SEO Meta Tags -->
 <meta name="description" content="Find hidden words in this puzzle game. Test your vocabulary and word search skills. Free online brain game.">
@@ -24,18 +24,18 @@
 <meta property="og:title" content="Worzzle Mini - Mobile Word Search">
 <meta property="og:description" content="Mobile-friendly word search with smaller grid. Play against computer on the go.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://soosooland.com/worzzle/">
+<meta property="og:url" content="https://soosooland.com/pop/">
 <meta property="og:image" content="https://soosooland.com/images/worpuzz.jpeg">
 <meta property="og:site_name" content="Soosooland">
-<link rel="canonical" href="https://soosooland.com/worzzle/">
+<link rel="canonical" href="https://soosooland.com/pop/">
 <link rel="stylesheet" href="https://soosooland.com/css/protection.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "VideoGame",
-  "name": "Worzzle Mini",
+  "name": "Breeze Pop",
   "description": "Mobile-optimized word search puzzle game with compact grid",
-  "url": "https://soosooland.com/worzzle/",
+  "url": "https://soosooland.com/pop/",
   "genre": ["Puzzle", "Word"],
   "gamePlatform": ["Web browser", "Mobile"],
   "playMode": "SinglePlayer",
@@ -227,23 +227,21 @@ h1 {
 <body>
   <button class="back-button" onclick="location.href='https://soosooland.com/'">
     Soosooland </button>
-  <h1>WORPUZZ MINI</h1>
+  <h1>Breeze Pop</h1>
   <div class="description">
-    컴퓨터와 교대로 격자를 클릭하여 숨겨진 단어를 찾아가는 1인용 단어 찾기 게임입니다.<br>
+    격자를 클릭하여 숨겨진 단어를 찾아가는 1인용 단어 찾기 게임입니다.<br>
     격자가 영어는 가로8*세로8이고, 한글은 가로7*세로7가 있는 작은 사이즈로 모바일에 적합합니다.<br>
     영어 게임은 3~7글자의 단어들이 들어있습니다.<br>
     단어는 가로, 세로, 대각선 방향으로 숨겨져 있으며, 마지막 글자를 열면 해당 단어를 획득합니다.<br>
-    더 많은 단어를 찾는 것이 목표이며, 승패 없이 "게임 종료"로 마무리됩니다.<br>
-    🍀 클로버를 열면 상하좌우 4칸이 함께 열리고 한 번 더 턴을 가집니다.<br>
-    🌼 데이지를 열면 주변 8칸이 모두 열리며 마찬가지로 추가 턴이 주어집니다.<br>
+    🍀 클로버를 열면 상하좌우 4칸이 함께 열립니다.<br>
+    🌼 데이지를 열면 주변 8칸이 모두 열립니다..<br>
     아래에서 원하는 워드풀을 선택해 게임을 시작하세요.<br>
-    This is a single-player Word sarch game where you take turns with the computer to uncover hidden words in the grid.<br>
+    This is a single-player Word sarch game to uncover hidden words in the grid.<br>
     The grid is small-sized, perfect for mobile: 8×8 for English and 7×7 for Korean.<br>
     The English game contains words from 3 to 7 letters.<br>
     Words are hidden horizontally, vertically, or diagonally, and you earn the word by revealing its final letter.<br>
-    Your goal is to find more words than the computer. There is no winner or loser — the game ends with "Game Over."<br>
-    🍀 If you find a clover, the four adjacent tiles (up, down, left, right) will open, and you get an extra turn.<br>
-    🌼 If you find a daisy, all eight surrounding tiles will open, and you also get an extra turn.<br>
+    🍀 If you find a clover, the four adjacent tiles (up, down, left, right) will open.<br>
+    🌼 If you find a daisy, all eight surrounding tiles will open.<br>
     Choose a word pool below to begin the game.</div>
 
   <div class="row-container">
@@ -288,7 +286,7 @@ h1 {
 })();
 
 function startGame(poolName, isEnglish) {
-    const page = isEnglish ? 'mini_eng.html' : 'mini_kor.html';
+    const page = isEnglish ? 'pop_eng.html' : 'pop_kor.html';
     location.href = `${page}?pool=${poolName}`;
 }    
   </script>
