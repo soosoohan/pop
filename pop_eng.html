@@ -348,7 +348,7 @@
   <div id="npcScore">
     <h2>INFO:</h2>
     <p id="wordsDisplay">Words: 0 / 0</p>
-    <p id="mistakesDisplay">Mistakes: 0 / 6</p>
+    <p id="mistakesDisplay">Mistakes: 0 / 7</p>
     <p id="cloverCountDisplay">Clovers: 0</p>
     <p id="daisyCountDisplay">Daisies: 0</p>
   </div>
@@ -363,7 +363,7 @@
   <div id="info-mobile">
     <h2>INFO</h2>
     <p id="wordsDisplayMobile">Words: 0 / 0</p>
-    <p id="mistakesDisplayMobile">Mistakes: 0 / 6</p>
+    <p id="mistakesDisplayMobile">Mistakes: 0 / 7</p>
     <p id="cloverCountDisplayMobile">Clovers: 0</p>
     <p id="daisyCountDisplayMobile">Daisies: 0</p>
   </div>
@@ -383,7 +383,7 @@ let board, revealed, wordMap, foundWords, foundBy, words, usedIndexes;
 let clovers = new Set(), daisies = new Set();
 let resultShown = false;
 let mistakes = 0;
-const mistakeLimit = 6; // Breeze rule
+const mistakeLimit = 7; // Breeze rule
 
 const gameEl = document.getElementById('game');
 const userScoreEl = document.getElementById('userScore');
