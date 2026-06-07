@@ -82,8 +82,39 @@ h1 {
     font-size: clamp(2rem, 5vw, 3rem);
     color: #FF9494;
     margin-bottom: 30px;
+    text-align: center; 
     text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
+ .language-toggle {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: rgba(255,255,255,0.9);
+        padding: 8px;
+        border-radius: 8px;
+        z-index: 100;
+    }
+
+    .language-button {
+        background: #2e8b8b;
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        margin: 2px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-family: 'Pretendard', sans-serif;
+        font-size: clamp(0.8rem, 2vw, 1rem);
+        transition: all 0.3s ease;
+    }
+
+    .language-button:hover {
+        background: #20b2aa;
+    }
+
+    .language-button.active {
+        background: #ff69b4;
+    }
 
 
   .description {
@@ -97,6 +128,9 @@ h1 {
     margin-left: auto;
     margin-right: auto;
     color: #7A2E2E;
+    text-align: left; 
+    padding-left: 20px;"
+
   }
 
   .row-container {
@@ -158,6 +192,16 @@ h1 {
 
 .description button:hover {
   background-color: #FF7373;
+}
+    footer {
+text-align: center;
+color: #7A2E2E;
+font-size: 0.8rem;
+margin-top: 30px;
+}
+
+.hidden {
+    display: none;
 }
 
 @media (max-width: 768px) {
@@ -222,27 +266,56 @@ h1 {
         background-color: #FF9494;
         color: white;
     }
+}
+    @media (max-width: 480px) {
+
+.language-toggle {
+        top: 10px;
+        right: 10px;
+        padding: 6px;
+        max-width: 150px; /* 최대 너비 제한 */
+    }
+    
+    .language-button {
+        padding: 5px 8px;
+        font-size: 0.85rem;
+        white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+    }
+
+}
 </style>  
 </head>
-<body>
+<body onload="initLanguage()">
   <button class="back-button" onclick="location.href='https://soosooland.com/'">
     Soosooland </button>
-  <h1>Breeze Pop</h1>
+    <div class="language-toggle">
+                <button class="language-button active" onclick="toggleLanguage('ko')">한</button>
+                <button class="language-button" onclick="toggleLanguage('en')">EN</button>
+            </div>
   <div class="description">
-    격자를 클릭하여 숨겨진 단어를 찾아가는 1인용 단어 찾기 게임입니다.<br>
+<div id="korean-description"> 
+     <h1>브리즈 팝</h1>
+     격자를 클릭하여 숨겨진 단어를 찾아가는 1인용 단어 찾기 게임입니다.<br>
     격자가 영어는 가로8*세로8이고, 한글은 가로7*세로7가 있는 작은 사이즈로 모바일에 적합합니다.<br>
     영어 게임은 3~7글자의 단어들이 들어있습니다.<br>
     단어는 가로, 세로, 대각선 방향으로 숨겨져 있으며, 마지막 글자를 열면 해당 단어를 획득합니다.<br>
     🍀 클로버를 열면 상하좌우 4칸이 함께 열립니다.<br>
      <img src="daisy_64x64.png" alt="데이지" style="width:21px; height:21px; vertical-align:middle;"> 데이지를 열면 주변 8칸이 모두 열립니다..<br>
     아래에서 원하는 워드풀을 선택해 게임을 시작하세요.<br>
-    This is a single-player Word sarch game to uncover hidden words in the grid.<br>
+
+
+</div>
+<div id="english-description" class="hidden">
+ <h1>Breeze Pop</h1>
+ This is a single-player Word sarch game to uncover hidden words in the grid.<br>
     The grid is small-sized, perfect for mobile: 8×8 for English and 7×7 for Korean.<br>
     The English game contains words from 3 to 7 letters.<br>
     Words are hidden horizontally, vertically, or diagonally, and you earn the word by revealing its final letter.<br>
     🍀 If you find a clover, the four adjacent tiles (up, down, left, right) will open.<br>
      <img src="daisy_64x64.png" alt="데이지" style="width:21px; height:21px; vertical-align:middle;"> If you find a daisy, all eight surrounding tiles will open.<br>
-    Choose a word pool below to begin the game.</div>
+    Choose a word pool below to begin the game. 
+ </div>
+   </div>
 
   <div class="row-container">
     <div class="column">
@@ -277,8 +350,40 @@ h1 {
 </div>
 </div>
   </div>
+<footer>
+  <p>© 2025 Han Soosoo. All rights reserved.</p>
+</footer>
 
   <script>
+function toggleLanguage(lang) {
+        const koreanDesc = document.getElementById('korean-description');
+        const englishDesc = document.getElementById('english-description');
+        const buttons = document.querySelectorAll('.language-button');
+        
+        buttons.forEach(btn => btn.classList.remove('active'));
+        
+        if (lang === 'ko') {
+            koreanDesc.classList.remove('hidden');
+            englishDesc.classList.add('hidden');
+            buttons[0].classList.add('active');
+        } else {
+            koreanDesc.classList.add('hidden');
+            englishDesc.classList.remove('hidden');
+            buttons[1].classList.add('active');
+        }
+
+localStorage.setItem('soosoo-lang', lang); 
+
+    }
+function initLanguage() {
+  const saved = localStorage.getItem('soosoo-lang');
+  if (saved) {
+    toggleLanguage(saved); // 저장된 값 우선
+  } else {
+    const lang = navigator.language.startsWith('ko') ? 'ko' : 'en';
+    toggleLanguage(lang); // 브라우저 언어 감지
+  }
+}
 
 function startGame(poolName, isEnglish) {
     const page = isEnglish ? 'pop_eng.html' : 'pop_kor.html';
