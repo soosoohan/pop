@@ -99,13 +99,19 @@ box-shadow: 0 2px 6px rgba(0,0,0,0.25);
 
 .back-button:active {transform: scale(0.92);transition: transform 0.1s;}
   
-h1 {
-    font-size: clamp(2rem, 5vw, 3rem);
-    color: #FF9494;
-    margin-bottom: 30px;
-    text-align: center; 
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+.main-title {
+    margin: 60px 0 20px;
+    font-size: 0;
 }
+
+.main-title img {
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    margin: 0 auto;
+}
+
  .language-toggle {
         position: absolute;
         top: 20px;
@@ -304,9 +310,14 @@ margin-top: 30px;
                 <button class="language-button active" onclick="toggleLanguage('ko')">한</button>
                 <button class="language-button" onclick="toggleLanguage('en')">EN</button>
             </div>
+  <div class="header">
+    <h1 class="main-title">
+        <img src="banner.jpeg" alt="브리즈 팝 Breeze Pop">
+    </h1>
+</div>
+
   <div class="description">
 <div id="korean-description"> 
-     <h1>브리즈 팝</h1>
   <p style="text-align: left; padding-left: 20px;">
     • 워퍼즈 브리즈 팝은 격자를 클릭하여 숨겨진 단어를 찾아가는 1인용 단어 찾기 게임입니다.<br>
     • 격자가 영어는 8×8이고, 한글은 7×7인 작은 사이즈로 모바일에 적합합니다.<br>
@@ -319,7 +330,6 @@ margin-top: 30px;
 
 </div>
 <div id="english-description" class="hidden">
- <h1>Breeze Pop</h1>
  <p style="text-align: left; padding-left: 20px;">
     • Worpuzz Breeze Pop is a single-player Word sarch game to uncover hidden words in the grid.<br>
     • The grid is small-sized, perfect for mobile: 8×8 for English and 7×7 for Korean.<br>
